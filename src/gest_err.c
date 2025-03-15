@@ -6,7 +6,7 @@
 /*   By: redrouic <redrouic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:57:54 by redrouic          #+#    #+#             */
-/*   Updated: 2025/03/15 08:47:15 by redrouic         ###   ########.fr       */
+/*   Updated: 2025/03/15 08:49:20 by redrouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,13 @@ size_t	ret_map_line(char **arr)
 	while (arr[y])
 	{
 		if (check_valid_line(arr[y]))
-		{
 			ret = y;
-			break ;
-		}
-		y++;
-	}
-	if (ret != -1)
-	{
-		y = ret;
-		while (arr[y])
+		if (ret != -1)
 		{
 			if (!check_valid_line(arr[y]))
 				return (fd_putstr("Error\nThe map is no last\n", 2), -1);
-			y++;
 		}
+		y++;
 	}
 	return (ret);
 }
