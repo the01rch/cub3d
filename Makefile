@@ -6,12 +6,15 @@
 #    By: redrouic <redrouic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 19:41:59 by redrouic          #+#    #+#              #
-#    Updated: 2025/02/09 01:45:54 by redrouic         ###   ########.fr        #
+#    Updated: 2025/02/26 20:59:48 by redrouic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC     =	src/main.c
-
+SRC     =	src/main.c\
+			src/utils.c\
+			src/gest_err.c\
+			src/str2arr.c
+		
 CC      =   cc
 
 SOBJ    =   $(SRC:.c=.o)
