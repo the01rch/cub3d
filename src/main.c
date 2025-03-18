@@ -6,7 +6,7 @@
 /*   By: redrouic <redrouic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 01:46:00 by redrouic          #+#    #+#             */
-/*   Updated: 2025/03/15 08:45:48 by redrouic         ###   ########.fr       */
+/*   Updated: 2025/03/15 09:07:00 by redrouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool	valid_extension(char *filename)
 # define READ	"Error\nThe map failed to read\n"
 # define ALLOC	"Error\nAllocation memory\n"
 
-static int	open_file(const char *path)
+int	open_file(const char *path)
 {
 	int	fd;
 
@@ -52,7 +52,7 @@ static int	open_file(const char *path)
 	return (fd);
 }
 
-static char	*get_buff(int fd)
+char	*get_buff(int fd)
 {
 	char	*buff;
 	char	tmp;
