@@ -6,7 +6,7 @@
 /*   By: redrouic <redrouic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 01:53:25 by redrouic          #+#    #+#             */
-/*   Updated: 2025/03/15 08:45:20 by redrouic         ###   ########.fr       */
+/*   Updated: 2025/04/14 22:07:47 by redrouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,14 @@ void	*ft_realloc(void *ptr, size_t new_size)
 		free(ptr);
 	}
 	return (new_ptr);
+}
+
+bool	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2)
+	{
+		if (*s1++ != *s2++)
+			return (false);
+	}
+	return (true);
 }

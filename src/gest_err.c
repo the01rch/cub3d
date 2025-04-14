@@ -6,7 +6,7 @@
 /*   By: redrouic <redrouic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:57:54 by redrouic          #+#    #+#             */
-/*   Updated: 2025/03/18 08:16:07 by redrouic         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:47:53 by redrouic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@ static bool	check_valid_line(char *str)
 	while (str[i])
 	{
 		if (str[i] == '1' || str[i] == '0' || str[i] == 'N' || str[i] == 'S'
-			|| str[i] == 'E' || str[i] == 'W' || str[i] == 32 || str[i] == 9)
+			|| str[i] == 'E' || str[i] == 'W' || str[i] == 9 || str[i] == 32)
+			i++;
+		else
 			break ;
-		i++;
 	}
 	if ((size_t)i == ft_strlen(str))
 		return (true);
 	return (false);
 }
 
-static size_t	ret_map_line(char **arr)
+size_t	ret_map_line(char **arr)
 {
 	int	ret;
 	int	y;
@@ -66,6 +67,8 @@ bool	is_wall(char *str)
 
 bool	map_closed(char **arr, int y)
 {
+	while (*arr[y] == 32)
+		arr[y]++;
 	if (!is_wall(arr[y++]))
 		return (false);
 	while (arr[y + 1] != NULL)
@@ -89,9 +92,10 @@ bool	is_error(char *file)
 		return (true);
 	y = ret_map_line(arr);
 	if (y < 0)
-		return (fd_putstr("Error\nThe map is not last\n", 2), true);
+		return (fd_putstr("Error\nThe map is missing or invalid\n", 2), true);
 	if (!map_closed(arr, y))
 		return (fd_putstr("Error\nThe map is not closed\n", 2), true);
-	printf("Sucess!\n");
+	if (!valid_id(arr, y))
+		return (true);
 	return (false);
 }

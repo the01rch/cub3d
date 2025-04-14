@@ -6,14 +6,15 @@
 #    By: redrouic <redrouic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 19:41:59 by redrouic          #+#    #+#              #
-#    Updated: 2025/02/26 20:59:48 by redrouic         ###   ########.fr        #
+#    Updated: 2025/04/14 22:05:55 by redrouic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC     =	src/main.c\
 			src/utils.c\
 			src/gest_err.c\
-			src/str2arr.c
+			src/str2arr.c\
+			src/identifiers.c\
 		
 CC      =   cc
 
